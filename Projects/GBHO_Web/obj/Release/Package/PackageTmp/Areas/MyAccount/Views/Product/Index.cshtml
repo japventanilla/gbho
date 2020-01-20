@@ -1,0 +1,59 @@
+﻿@model List<ProductViewModel>
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Areas/MyAccount/Views/Shared/_MyAccountLayout.cshtml";
+}
+
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title">View Products</strong>
+                </div>
+                <div class="card-body">
+            <table id="myList" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                    <th>Membership Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                   foreach(ProductViewModel item in Model)
+                   {
+                       <tr>
+                           <td><a href="@Url.Content("~/MyAccount/Product/Record?id="+item.ProductId)">@item.ProductName</a></td>
+                           <td class="text-right">@string.Format("{0:n0}", item.Amount)</td>
+                           <td class="text-right">@item.Points</td>
+                       </tr>
+                   }
+                }                   
+            </tbody>
+            </table>
+                </div>
+            </div>
+        </div>
+
+
+        </div>
+    </div>
+</div>
+
+@section AdditionalScript{
+
+    @Scripts.Render("~/bundles/myaccount/data-table/js")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#myList').DataTable();
+        });
+    </script>
+
+}

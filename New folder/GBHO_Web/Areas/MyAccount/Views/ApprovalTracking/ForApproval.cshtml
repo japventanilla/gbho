@@ -1,0 +1,254 @@
+﻿@model MemberViewModel
+@{
+    ViewBag.Title = "Approvals";
+    Layout = "~/Areas/MyAccount/Views/Shared/_MyAccountLayout.cshtml";
+    string pictureImg = string.IsNullOrEmpty(Model.Picture) ? System.Configuration.ConfigurationManager.AppSettings["NoProfileImage"].ToString() : Model.Picture;
+}
+
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+        <strong>For</strong> Approval
+        </div>
+
+        <div class="card-body card-block">
+
+            @if (ViewBag.SuccessMsg != null)
+            {
+                <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+                    <span class="badge badge-pill badge-success">Success!</span>
+                    @ViewBag.SuccessMsg
+                </div>
+            }
+            else
+            {
+                if (ViewBag.ErrorMsg != null)
+                {
+                    <div class="sufee-alert alert with-close alert-danger alert-dismissible fade show">
+                            <span class="badge badge-pill badge-danger">Sorry!</span>
+                        @ViewBag.ErrorMsg
+                    </div>
+                }
+            }
+
+            @if (ViewBag.NetGuard != null)
+            {
+                <div class="sufee-alert alert with-close alert-danger alert-dismissible fade show">
+                   <span class="badge badge-pill badge-danger">Net Guard!</span> Please see the geneology by clicking this <a href="@ViewBag.NetGuard" class="text-danger" style="font-weight:bold">link</a>.
+                </div>
+            }
+            
+            
+            <div class="row form-group">
+                <div class="col col-md-3"><label class=" form-control-label">Member ID</label></div>
+                <div class="col-12 col-md-5"><p class="form-control-static">@Model.MemberCode</p></div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Username</label></div>
+                <div class="col-12 col-md-5"><p class="form-control-static">@Model.Username</p></div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3"><label for="text-input" class=" form-control-label">First Name</label></div>
+                <div class="col-12 col-md-5"><p class="form-control-static">@Model.FName</p></div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Middle Name</label></div>
+                <div class="col-12 col-md-5"><p class="form-control-static">@Model.MName</p></div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Last Name</label></div>
+                <div class="col-12 col-md-5"><p class="form-control-static">@Model.LName</p></div>
+            </div>
+                
+            <div class="row form-group">
+                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Email</label></div>
+                <div class="col-12 col-md-5"><p class="form-control-static">@Model.Email</p></div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Mobile No</label></div>
+                <div class="col-12 col-md-5"><p class="form-control-static">@Model.MobileNo</p></div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Telephone No</label></div>
+                <div class="col-12 col-md-5"><p class="form-control-static">@Model.TelNo</p></div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Occupation</label></div>
+                <div class="col-12 col-md-5"><p class="form-control-static">@Model.Occupation</p></div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Birthday</label></div>
+                <div class="col-12 col-md-5"><p class="form-control-static">@Model.BirthdayString</p></div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Birthday Place</label></div>
+                <div class="col-12 col-md-5"><p class="form-control-static">@Model.BirthPlace</p></div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Citizenship</label></div>
+                <div class="col-12 col-md-5"><p class="form-control-static">@Model.Citizenship</p></div>
+            </div>
+
+            <div class="row form-group">
+                    <div class="col col-md-3"><label class=" form-control-label">Gender</label></div>
+                <div class="col col-md-9">
+                    <div class="form-check-inline form-check"><p class="form-control-static">@Model.Gender</p></div>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                    <div class="col col-md-3"><label class=" form-control-label">Marital Status</label></div>
+                <div class="col col-md-9">
+                    <div class="form-check-inline form-check"><p class="form-control-static">@Model.MaritalStatus</p></div>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Present Address</label></div>
+                <div class="col-12 col-md-5"><p class="form-control-static">@Model.PresentAddress</p></div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Provincial Address</label></div>
+                <div class="col-12 col-md-5"><p class="form-control-static">@Model.ProvincialAddress</p></div>
+            </div>
+
+            @if (Model.HierarchyCode != "$1") // $1 means -> top level
+            {
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Placement</label></div>
+                    <div class="col-12 col-md-9"><p class="form-control-static">@(Model.Placement != null ? Model.Placement : "N/A")</p></div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Placement Group</label></div>
+                    <div class="col-12 col-md-5"><p class="form-control-static">@Model.HierarchyCodeDisplay</p></div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Sponsor</label></div>
+                    <div class="col-12 col-md-9"><p class="form-control-static">@(Model.Sponsor != null ? Model.Sponsor : "N/A")</p></div>
+                </div>
+            }                
+
+            <div class="row form-group">
+                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Date Joined</label></div>
+                <div class="col-12 col-md-5"><p class="form-control-static">@Model.DateJoinedString</p></div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Member Type</label></div>
+                <div class="col-12 col-md-5"><p class="form-control-static">@(Model.MemberType == GBHO_Business.Objects.MemberTypeEnum.ForApproval.ToString()? "For Approval" : Model.MemberType == GBHO_Business.Objects.MemberTypeEnum.ForValidate.ToString()? "For Validation" : Model.MemberType)</p></div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Payment Type</label></div>
+                <div class="col-12 col-md-5"><p class="form-control-static">@Model.PaymentType</p></div>
+            </div>
+
+            @if (Model.PaymentType == "Cash")
+            {
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Cash Note</label></div>
+                    <div class="col-12 col-md-5"><p class="form-control-static">@Model.CashNote</p></div>
+                </div>
+            }
+
+            @if (Model.PaymentType == "Deposit")
+            {
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Bank Branch</label></div>
+                    <div class="col-12 col-md-5"><p class="form-control-static">@Model.BankBranch</p></div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Deposit Number</label></div>
+                    <div class="col-12 col-md-5"><p class="form-control-static">@Model.DepositNo</p></div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Date Deposited</label></div>
+                    <div class="col-12 col-md-5"><p class="form-control-static">@Model.DateDepositedString</p></div>
+                </div>
+            }
+
+            <div class="row form-group">
+                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Processed By</label></div>
+                <div class="col-12 col-md-9"><p class="form-control-static">@Model.ProcessedBy (@Model.ProcessedByUsername)</p></div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Processed Date</label></div>
+                <div class="col-12 col-md-9"><p class="form-control-static">@Model.ProcessedDateString</p></div>
+            </div>
+
+            <div class="row form-group">
+                    <div class="col col-md-3"><label for="file-input" class=" form-control-label">Profile Picture</label></div>
+                    <div class="col-12 col-md-9" style="padding-top:20px;">
+                    <img src="@pictureImg" width="200px" height="200px" />                     
+                    </div>
+            </div>
+
+        </div>
+
+        @if (Model.MemberType == "ForApproval")
+        {
+            <div class="card-footer">
+                @using (Html.BeginForm())
+                {
+                    @Html.HiddenFor(m => m.MemberId)
+                    <input id="submitType" name="submitType" value="" type="hidden" />
+
+                    <button type="button" class="btn btn-primary btn-sm" id="btnApprove">
+                        <i class="fa fa-dot-circle-o"></i> Approve
+                    </button>
+                
+                    <button type="button" class="btn btn-danger btn-sm" id="btnCancel">
+                        <i class="fa fa-ban"></i> Cancel
+                    </button>
+                    
+                    <button type="button" class="btn btn-sm" onclick="window.location.replace('@Url.Content("~/MyAccount/ApprovalTracking/ForApprovals")');">
+                        <i class="fa fa-angle-left"></i> Back to list
+                    </button>
+                }
+            </div>
+        }
+            
+
+    </div>
+</div>
+
+
+@section AdditionalScript{
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            
+            jQuery('#btnApprove').click(function () {
+                var r = confirm("Are you sure you want to approve this record?");
+                if (r == true) {
+                    jQuery('#submitType').val('approve');
+                    jQuery("form").submit();
+                }
+            });
+
+            jQuery('#btnCancel').click(function () {
+                var r = confirm("Are you sure you want to cancel this record?");
+                if (r == true) {
+                    jQuery('#submitType').val('cancel');
+                    jQuery("form").submit();
+                }
+            });
+
+        });
+    </script>
+
+}

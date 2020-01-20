@@ -1,0 +1,130 @@
+﻿@model List<OrderItemViewModel>
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Areas/MyAccount/Views/Shared/_MyAccountLayout.cshtml";
+    GBHO_Data.EntityFrameworks.Member member = ((GBHO_Data.EntityFrameworks.Member)Session["CurrentUser"]);
+    String[] roles = Roles.GetRolesForUser(member.MemberId.ToString());
+}
+
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+        <strong>Order</strong> Details
+        <span class="pull-right">            
+            #@(Model != null && Model.Count > 0 ? Model.First().OrderIdString : string.Empty)  
+            @if (roles[0] == "SuperAdmin" || roles[0] == "Admin" || roles[0] == "DevAdmin" && (Model != null && Model.Count > 0))
+            {
+                <span style="color:#868e96">(@Model.First().Member)</span> 
+            }          
+        </span>
+        </div>
+        <div class="card-body card-block">
+
+            @if (Model != null && Model.Count > 0)
+            {
+                using (Html.BeginForm())
+                {
+                     <input id="submitType" name="submitType" value="" type="hidden" />
+                     @Html.Hidden("OrderId", Model.First().OrderId);
+
+                    foreach (OrderItemViewModel item in Model)
+                    {
+                        string pictureImg = string.IsNullOrEmpty(item.Picture) ? System.Configuration.ConfigurationManager.AppSettings["NoProductImage"].ToString() : System.Configuration.ConfigurationManager.AppSettings["UploadPath"].ToString() + item.Picture;
+                    
+                        <div class="col-12">
+                            <div class="col col-md-2">
+                                <img class="align-self-center mr-3" style="width:100px; height:100px;" alt="" src="@pictureImg">
+                            </div>
+                            <div class="col-12 col-md-8">
+                                <h4 class="mt-2 mb-1">@item.ProductName</h4>
+                                <div><i class="fa fa-rouble"></i> @item.Amount&nbsp;&nbsp;|&nbsp;&nbsp;<span class="badge badge-secondary">@(item.Points)pts</span></div>
+                            </div>
+                            <div class="col-12 col-md-2" id="p_@item.OrderItemId.ToString()">
+                                <small class="form-text text-center">Quantity</small>
+                                <div class="text-center"><b>@item.QTY</b></div>    
+                                @Html.Hidden("p_amt_" + @item.OrderItemId.ToString(), item.Amount, new { @class = "pAmt" })
+                                @Html.Hidden("p_pts_" + @item.OrderItemId.ToString(), item.Points, new { @class = "pPts" })
+                                @Html.Hidden("p_amt_tot_" + @item.OrderItemId.ToString(), (item.Amount * item.QTY), new { @class = "pAmtTot" })
+                                @Html.Hidden("p_pts_tot_" + @item.OrderItemId.ToString(), (item.Points * item.QTY), new { @class = "pPtsTot" })
+                            </div>
+                        </div>
+
+                        <div class="col-12"><hr /></div>
+                    }
+                }
+            }
+
+            <div class="col-md-12">
+                <div class="weather-category">
+                    <ul>
+                        <li style="width:33%">
+                            Status
+                            <h5>@ViewBag.Status</h5>
+                        </li>
+                        <li style="width:33%">
+                            Total (VAT incl.)
+                            <h5 id="totalAmount">0.00</h5>                            
+                        </li>
+                        <li style="border-right:0; width:33%">
+                            Total Points
+                            <h5 id="totalPoints">@ViewBag.TotalPoints</h5>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="card-footer">      
+            <button id="btnSubmit" type="button" class="btn btn-primary">Process Order</button>&nbsp;          
+            <button id="btnCancel" type="button" class="btn btn-secondary">Cancel Order</button>&nbsp;
+            <button type="button" class="btn btn-secondary" onclick="window.location='@Url.Content("~/MyAccount/Order/ViewOrders")';">Back to View Orders</button>
+        </div>
+
+    </div>
+</div>
+
+@section AdditionalScript{
+    
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+
+            UpdateTotal();
+
+            jQuery('#btnCancel').click(function () {
+                var r = confirm("Are you sure you want to cancel this order?");
+                if (r == true) {
+                    jQuery('#submitType').val('cancel');
+                    jQuery('form').submit();
+                }
+            });
+
+            jQuery('#btnSubmit').click(function () {
+                var r = confirm("Are you sure you want to process this order?");
+                if (r == true) {
+                    jQuery('#submitType').val('submit');
+                    jQuery('form').submit();
+                }
+            });
+
+            function UpdateTotal() {
+                var amtTot = 0;
+                jQuery(".pAmtTot").each(function (i, el) {
+                    var elem = jQuery(el);
+                    amtTot = amtTot + parseFloat(elem.val());
+                });
+
+                var ptsTot = 0;
+                jQuery(".pPtsTot").each(function (i, el) {
+                    var elem = jQuery(el);
+                    ptsTot = ptsTot + parseFloat(elem.val());
+                });
+
+                jQuery('#totalAmount').html(amtTot.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,'));
+                jQuery('#totalPoints').html(ptsTot.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,'));
+            }
+
+        });
+    </script>
+
+}

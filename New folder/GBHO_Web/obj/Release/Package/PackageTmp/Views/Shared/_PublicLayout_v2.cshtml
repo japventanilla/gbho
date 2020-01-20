@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>GBHO Inc - God Bringing Health & Opportunity</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GBHO Inc - God Bringing Health & Opportunity" />
+  <meta name="keywords" content="gbho, health, wellness, beauty, opportunity, marketing, business, entrepreneur, products, medicine, network" />
+  <meta name="author" content="GBHOInc" />
+
+  <!-- css -->
+  <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:300,400,600,700" rel="stylesheet">
+  
+  <!---->
+    @Styles.Render("~/bundles/public_v2/css")
+    
+  <link href="/App_Themes/Public/v2/css/style.css" rel="stylesheet" />
+  <!-- Theme skin -->
+  <link href="/App_Themes/Public/v2/skins/default.css" rel="stylesheet" />
+
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/App_Themes/Public/v2/ico/apple-touch-icon-144-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/App_Themes/Public/v2/ico/apple-touch-icon-114-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/App_Themes/Public/v2/ico/apple-touch-icon-72-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" href="/App_Themes/Public/v2/ico/apple-touch-icon-57-precomposed.png" />
+  <link rel="shortcut icon" href="/App_Themes/Public/v2/ico/favicon.png" />
+
+</head>
+
+<body>
+  <div id="wrapper">
+    <!-- start header -->
+    <header>
+      <div class="container ">
+        
+        <!-- end toggle link -->
+        <div class="row nomargin">
+          <div class="span12">
+            <div class="headnav" >
+              <ul>
+                <li style="left:-6px; position:relative"><a href="/MyAccount">My Account</a></li>
+              </ul>
+            </div>
+            <!-- Sign in Modal -->
+            <div id="mySignin" class="modal styled hide fade" tabindex="-1" role="dialog" aria-labelledby="mySigninModalLabel" aria-hidden="true">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 id="mySigninModalLabel">Login to your <strong>account</strong></h4>
+              </div>
+              <div class="modal-body">
+                <form class="form-horizontal">
+                  <div class="control-group">
+                    <label class="control-label" for="inputText">Username</label>
+                    <div class="controls">
+                      <input type="text" id="inputText" placeholder="Username">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label" for="inputSigninPassword">Password</label>
+                    <div class="controls">
+                      <input type="password" id="inputSigninPassword" placeholder="Password">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <div class="controls">
+                      <button type="submit" class="btn">Sign in</button>
+                    </div>
+                    <p class="aligncenter margintop20">
+                      Forgot password? <a href="#myReset" data-dismiss="modal" aria-hidden="true" data-toggle="modal">Reset</a>
+                    </p>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- end signin modal -->
+            <!-- Reset Modal -->
+            <div id="myReset" class="modal styled hide fade" tabindex="-1" role="dialog" aria-labelledby="myResetModalLabel" aria-hidden="true">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 id="myResetModalLabel">Reset your <strong>password</strong></h4>
+              </div>
+              <div class="modal-body">
+                <form class="form-horizontal">
+                  <div class="control-group">
+                    <label class="control-label" for="inputResetEmail">Email</label>
+                    <div class="controls">
+                      <input type="text" id="inputResetEmail" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <div class="controls">
+                      <button type="submit" class="btn">Reset password</button>
+                    </div>
+                    <p class="aligncenter margintop20">
+                      We will send instructions on how to reset your password to your inbox
+                    </p>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- end reset modal -->
+          </div>
+        </div>
+        <div class="row">
+          <div class="span6">
+            <div class="logo">
+              <a href="/"><img src="/App_Themes/Public/v2/img/logo2.png" alt="" class="logo" /></a>
+            </div>
+          </div>
+          <div class="span6">
+            <div class="navbar navbar-static-top">
+              <div class="navigation">
+                <nav>
+                  <ul class="nav topnav">
+                    <li class="dropdown active">
+                      <a href="/">Home </a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="/Products/">Our Products <i class="icon-angle-down"></i></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="/Products/Mangosteen">Mangosteen Nature Blend Juiced Mix</a></li>
+                        <li><a href="/Products/Guyanoni">GuyaNONI drink</a></li>
+                        <li><a href="/Products/BlazeiCoffee">ORYZA & AGARICUS Blazei Coffee</a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown">
+                      <a href="/home/about">About Us </a>
+                    </li>
+                    <li>
+                      <a href="/home/contact">Contact Us</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <!-- end navigation -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- end header -->
+
+    @RenderBody()
+
+    <section id="bottom">
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <div class="aligncenter">
+              <div id="twitter-wrapper">
+                <div id="twitter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+        <div class="row">
+          
+          <div class="span4">
+            <div class="widget">
+              <h5 class="widgetheading">Our Products</h5>
+              <ul class="link-list">
+                <li><a href="/Products/Mangosteen">Mangosteen Nature Blend Juiced Mix</a></li>
+				<li><a href="/Products/Guyanoni">GuyaNONI drink</a></li>
+				<li><a href="/Products/BlazeiCoffee">ORYZA & AGARICUS Blazei Coffee</a></li>
+              </ul>
+            </div>
+          </div>
+		  
+		  <div class="span4">
+            <div class="widget">
+              <h5 class="widgetheading">Browse pages</h5>
+              <ul class="link-list">
+                <li><a href="/Products">Our Products</a></li>
+                <li><a href="/Home/About">About Us</a></li>
+                <li><a href="/Home/Contact">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+		  
+          <div class="span4">
+            <div class="widget">
+              <h5 class="widgetheading">Get in touch with us</h5>
+              <address>
+				 Phase 1A Corner Sta. Cecilla St. pacita Complex 1,<br>
+				 San Pedro City, Laguna<br>
+			  </address>
+              <p>
+                <i class="icon-phone"></i> (02) 7941400 <br>
+				<i class="icon-envelope-alt"></i> info@gbhoinc.com
+              </p>
+            </div>
+          </div>
+		  
+        </div>
+      </div>
+      <div id="sub-footer">
+        <div class="container">
+          <div class="row">
+            <div class="span6">
+              <div class="copyright">
+                <p>
+                  <span>&copy; GBHO Inc. - All right reserved.</span>
+                </p>
+              </div>
+            </div>
+            <div class="span6">
+              <ul class="social-network">
+                <li><a href="#" data-placement="bottom" title="Facebook"><i class="icon-facebook icon-square"></i></a></li>
+                <li><a href="#" data-placement="bottom" title="Twitter"><i class="icon-twitter icon-square"></i></a></li>
+                <li><a href="#" data-placement="bottom" title="Google plus"><i class="icon-google-plus icon-square"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <a href="#" class="scrollup"><i class="icon-chevron-up icon-square icon-32 active"></i></a>
+  <!-- javascript
+    ================================================== -->
+  @Scripts.Render("~/bundles/public_v2/js")	
+  @RenderSection("AdditionalScript", required: false) 
+
+</body>
+</html>

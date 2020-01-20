@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Withdrawals";
+    Layout = "~/Areas/MyAccount/Views/Shared/_MyAccountLayout.cshtml";
+}
+
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+        <strong>Withdraw</strong>
+        </div>
+        <div class="card-body card-block">
+
+            <div class="row form-group">
+                <div class="col col-md-3"><label class=" form-control-label">Member *</label></div>
+                <div class="col-12 col-md-9">
+                    <select name="select" id="memberList" class="form-control">
+                        <option value="0">Please Select..</option>
+                        <option value="1">Juan Dela Cruz</option>
+                        <option value="2">Ronald Ventanilla</option>
+                        <option value="3">Jerick Villanueva</option>
+                 </select>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3"><label class=" form-control-label">Amount *</label></div>
+                <div class="col-12 col-md-5"><input type="text" id="pdesc" name="text-input" placeholder="Amount" class="form-control"></div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3"><label class=" form-control-label">Type *</label></div>
+                <div class="col-12 col-md-5">
+                    <select name="select" id="ptype" class="form-control">
+                        <option value="0">Please Select..</option>
+                        <option value="1">Cash</option>
+                        <option value="2">Cheque</option>
+                 </select>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3"><label class=" form-control-label">Cheque No *</label></div>
+                <div class="col-12 col-md-5"><input type="text" id="amount" name="text-input" placeholder="Amount" class="form-control" disabled></div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3"><label class=" form-control-label">Status *</label></div>
+                <div class="col-12 col-md-5">
+                    <select name="select" id="pStatus" class="form-control">
+                        <option value="0">Please Select..</option>
+                        <option value="1">Released</option>
+                        <option value="2">Voided</option>
+                 </select>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3"><label class=" form-control-label">Transaction Date *</label></div>
+                <div class="col-12 col-md-5"><input type="text" id="points" name="text-input" placeholder="01/31/2018" class="form-control datepicker"></div>
+            </div>
+
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary btn-sm">
+                <i class="fa fa-dot-circle-o"></i> Submit
+            </button>
+            <button type="reset" class="btn btn-danger btn-sm">
+                <i class="fa fa-ban"></i> Reset
+            </button>
+        </div>
+    </div>
+</div>
