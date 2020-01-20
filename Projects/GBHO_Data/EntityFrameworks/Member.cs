@@ -59,6 +59,8 @@ namespace GBHO_Data.EntityFrameworks
         public string BankBranch { get; set; }
         public string DepositNo { get; set; }
         public Nullable<System.DateTime> DateDeposited { get; set; }
+        public string MemberCodeOld { get; set; }
+        public string Code { get; set; }
     
         public virtual Role Role { get; set; }
         public virtual ICollection<Order> Orders { get; set; }

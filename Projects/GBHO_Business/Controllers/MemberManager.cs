@@ -154,6 +154,7 @@ namespace GBHO_Business.Controllers
                 {
                     result = new Member();
                     result.MemberId = item.MemberId;
+                    result.Code = item.Code;
                     result.MemberCode = item.MemberCode;
                     result.Username = item.Username;
                     result.LastName = item.LastName;
@@ -258,7 +259,8 @@ namespace GBHO_Business.Controllers
 
                         if (item == null)
                             item = new Member();
-                                                
+
+                        item.Code = member.Code;
                         item.Username = member.Username;
                         item.FirstName = member.FirstName;
                         item.MiddleName = member.MiddleName;

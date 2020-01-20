@@ -25,16 +25,16 @@ namespace GBHO_Data.EntityFrameworks
         public string NonMemberAddress { get; set; }
         public string NonMemberPhoneNo { get; set; }
         public string Status { get; set; }
-        public string OrderBy { get; set; }
-        public string OrderFor { get; set; }
-        public Nullable<System.DateTime> OrderDate { get; set; }
-        public string ProcessedBy { get; set; }
-        public Nullable<System.DateTime> ProcessedDate { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
         public string ModifiedBy { get; set; }
         public string RecState { get; set; }
+        public string OrderBy { get; set; }
+        public string OrderFor { get; set; }
+        public Nullable<System.DateTime> OrderDate { get; set; }
+        public string ProcessedBy { get; set; }
+        public Nullable<System.DateTime> ProcessedDate { get; set; }
     
         public virtual Member Member { get; set; }
         public virtual ICollection<OrderItem> OrderItems { get; set; }

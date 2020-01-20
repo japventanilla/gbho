@@ -29,6 +29,7 @@ namespace GBHO_Data.EntityFrameworks
         }
     
         public DbSet<BinaryIncomeAll> BinaryIncomeAlls { get; set; }
+        public DbSet<MemberCounter> MemberCounters { get; set; }
         public DbSet<Member> Members { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -206,19 +207,6 @@ namespace GBHO_Data.EntityFrameworks
                 new ObjectParameter("hasGroupBonus", typeof(bool));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Rebates_Result>("Rebates", dtParameter, hasGroupBonusParameter);
-        }
-    
-        public virtual ObjectResult<Rebates2_Result> Rebates2(Nullable<System.DateTime> dt, Nullable<bool> hasGroupBonus)
-        {
-            var dtParameter = dt.HasValue ?
-                new ObjectParameter("dt", dt) :
-                new ObjectParameter("dt", typeof(System.DateTime));
-    
-            var hasGroupBonusParameter = hasGroupBonus.HasValue ?
-                new ObjectParameter("hasGroupBonus", hasGroupBonus) :
-                new ObjectParameter("hasGroupBonus", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Rebates2_Result>("Rebates2", dtParameter, hasGroupBonusParameter);
         }
     
         public virtual ObjectResult<RebatesByMember_Result> RebatesByMember(Nullable<System.DateTime> dt, Nullable<bool> hasGroupBonus, Nullable<int> memberId)

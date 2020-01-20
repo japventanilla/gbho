@@ -92,6 +92,7 @@ namespace GBHO_Web.Areas.MyAccount.Controllers
                 Member member = new Member();
                 member.MemberId = model.MemberId;
                 member.MemberCode = model.MemberCode;
+                member.Code = model.Code;
                 member.Username = model.Username;
                 member.FirstName = model.FName;
                 member.MiddleName = model.MName;

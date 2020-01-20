@@ -16,3 +16,11 @@ C:\RONALD_BACKUP\Personal\Others\GBHO\Projects\Web\GBHO_Web\GBHO_Data\obj\Debug\
 C:\RONALD_BACKUP\Personal\Others\GBHO\Projects\Web\GBHO_Web\GBHO_Data\obj\Debug\GBHO_Data.csproj.CopyComplete
 C:\RONALD_BACKUP\Personal\Others\GBHO\Projects\Web\GBHO_Web\GBHO_Data\obj\Debug\GBHO_Data.dll
 C:\RONALD_BACKUP\Personal\Others\GBHO\Projects\Web\GBHO_Web\GBHO_Data\obj\Debug\GBHO_Data.pdb
+C:\Users\SALCEDO\Documents\GitHub\gbho\Projects\GBHO_Data\bin\Debug\GBHO_Data.dll.config
+C:\Users\SALCEDO\Documents\GitHub\gbho\Projects\GBHO_Data\bin\Debug\GBHO_Data.dll
+C:\Users\SALCEDO\Documents\GitHub\gbho\Projects\GBHO_Data\bin\Debug\GBHO_Data.pdb
+C:\Users\SALCEDO\Documents\GitHub\gbho\Projects\GBHO_Data\bin\Debug\EntityFramework.dll
+C:\Users\SALCEDO\Documents\GitHub\gbho\Projects\GBHO_Data\bin\Debug\EntityFramework.xml
+C:\Users\SALCEDO\Documents\GitHub\gbho\Projects\GBHO_Data\obj\Debug\GBHO_Data.csprojResolveAssemblyReference.cache
+C:\Users\SALCEDO\Documents\GitHub\gbho\Projects\GBHO_Data\obj\Debug\GBHO_Data.dll
+C:\Users\SALCEDO\Documents\GitHub\gbho\Projects\GBHO_Data\obj\Debug\GBHO_Data.pdb

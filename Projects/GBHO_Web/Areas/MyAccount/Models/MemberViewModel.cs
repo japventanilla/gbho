@@ -18,6 +18,10 @@ namespace GBHO_Web.Areas.MyAccount.Models
         [StringLength(20)]
         public string Username { get; set; }
 
+        [Required(ErrorMessage = "Code is required")]
+        [StringLength(30)]
+        public string Code { get; set; }
+
         [Required(ErrorMessage = "First Name is required")]
         [StringLength(30)]
         public string FName { get; set; }

@@ -251,6 +251,7 @@ namespace GBHO_Web.Classes
             MemberViewModel model = new MemberViewModel();
             model.MemberId = item.MemberId;
             model.MemberCode = item.MemberCode;
+            model.Code = item.Code;
             model.Username = item.Username;
             model.FName = item.FirstName;
             model.MName = item.MiddleName;
@@ -330,6 +331,7 @@ namespace GBHO_Web.Classes
                 result = new MemberViewModel();
                 result.MemberId = item.MemberId;
                 result.MemberCode = item.MemberCode;
+                result.Code = item.Code;
                 result.Username = item.Username;
                 result.FName = item.FirstName;
                 result.MName = item.MiddleName;
@@ -350,6 +352,7 @@ namespace GBHO_Web.Classes
                 result = new MemberViewModel();
                 result.MemberId = item.MemberId;
                 result.MemberCode = item.MemberCode;
+                result.Code = item.Code;
                 result.Username = item.Username;
                 result.FName = item.FirstName;
                 result.MName = item.MiddleName;

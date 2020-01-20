@@ -1,101 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="GBHODBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityContainer Name="GBHODBEntities" p1:LazyLoadingEnabled="true">
-    <EntitySet Name="BinaryIncomeAlls" EntityType="GBHODBModel.BinaryIncomeAll" />
-    <EntitySet Name="Members" EntityType="GBHODBModel.Member" />
-    <EntitySet Name="OrderItems" EntityType="GBHODBModel.OrderItem" />
-    <EntitySet Name="Orders" EntityType="GBHODBModel.Order" />
-    <EntitySet Name="Products" EntityType="GBHODBModel.Product" />
-    <EntitySet Name="Roles" EntityType="GBHODBModel.Role" />
-    <EntitySet Name="Settings" EntityType="GBHODBModel.Setting" />
-    <EntitySet Name="Withdrawals" EntityType="GBHODBModel.Withdrawal" />
-    <AssociationSet Name="FK_Members_Roles" Association="GBHODBModel.FK_Members_Roles">
-      <End Role="Roles" EntitySet="Roles" />
-      <End Role="Members" EntitySet="Members" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Orders_Members" Association="GBHODBModel.FK_Orders_Members">
-      <End Role="Members" EntitySet="Members" />
-      <End Role="Orders" EntitySet="Orders" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Withdrawals_Members" Association="GBHODBModel.FK_Withdrawals_Members">
-      <End Role="Members" EntitySet="Members" />
-      <End Role="Withdrawals" EntitySet="Withdrawals" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderItems_Orders" Association="GBHODBModel.FK_OrderItems_Orders">
-      <End Role="Orders" EntitySet="Orders" />
-      <End Role="OrderItems" EntitySet="OrderItems" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderItems_Products" Association="GBHODBModel.FK_OrderItems_Products">
-      <End Role="Products" EntitySet="Products" />
-      <End Role="OrderItems" EntitySet="OrderItems" />
-    </AssociationSet>
-    <FunctionImport Name="GetBinaryIncome" ReturnType="Collection(GBHODBModel.GetBinaryIncome_Result)" IsComposable="true">
-      <Parameter Name="hcode" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="GetPairBonus" ReturnType="Collection(GBHODBModel.GetPairBonus_Result)" IsComposable="true">
-      <Parameter Name="memberId" Type="Int32" />
-      <Parameter Name="dt" Type="DateTime" />
-      <Parameter Name="refval" Type="Int32" />
-      <Parameter Name="pair" Type="Int32" />
-      <Parameter Name="hCode" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="BinaryIncome" ReturnType="Collection(GBHODBModel.BinaryIncome_Result)">
-      <Parameter Name="MemberID" Mode="In" Type="Int32" />
-      <Parameter Name="dt" Mode="In" Type="DateTime" />
-    </FunctionImport>
-    <FunctionImport Name="GetAllForReceiving" ReturnType="Collection(GBHODBModel.GetAllForReceiving_Result)" />
-    <FunctionImport Name="GetAllOrders" ReturnType="Collection(GBHODBModel.GetAllOrders_Result)">
-      <Parameter Name="Username" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="GetAllOrdersPending" ReturnType="Collection(GBHODBModel.GetAllOrdersPending_Result)">
-      <Parameter Name="MemberID" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="GetCart" ReturnType="Collection(GBHODBModel.GetCart_Result)">
-      <Parameter Name="MemberID" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="GetMyOrders" ReturnType="Collection(GBHODBModel.GetMyOrders_Result)">
-      <Parameter Name="MemberID" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="GetOrderDetails" ReturnType="Collection(GBHODBModel.GetOrderDetails_Result)">
-      <Parameter Name="OrderId" Mode="In" Type="Int64" />
-    </FunctionImport>
-    <FunctionImport Name="GetPairs" ReturnType="Collection(GBHODBModel.GetPairs_Result)">
-      <Parameter Name="HierarchyCode" Mode="In" Type="String" />
-      <Parameter Name="DT" Mode="In" Type="DateTime" />
-    </FunctionImport>
-    <FunctionImport Name="GroupBonus" ReturnType="Collection(GBHODBModel.GroupBonus_Result)">
-      <Parameter Name="MemberID" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="OrderReports" ReturnType="Collection(GBHODBModel.OrderReports_Result)">
-      <Parameter Name="admin" Mode="In" Type="String" />
-      <Parameter Name="dt" Mode="In" Type="DateTime" />
-    </FunctionImport>
-    <FunctionImport Name="PairingBonus" ReturnType="Collection(GBHODBModel.PairingBonus_Result)">
-      <Parameter Name="MemberID" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="ProcessRebatesCleanUp" />
-    <FunctionImport Name="ProcessRebatesReport" />
-    <FunctionImport Name="ProcessRebatesReportStatus" ReturnType="Collection(GBHODBModel.ProcessRebatesReportStatus_Result)" />
-    <FunctionImport Name="Rebates" ReturnType="Collection(GBHODBModel.Rebates_Result)">
-      <Parameter Name="dt" Mode="In" Type="DateTime" />
-      <Parameter Name="hasGroupBonus" Mode="In" Type="Boolean" />
-    </FunctionImport>
-    <FunctionImport Name="Rebates2" ReturnType="Collection(GBHODBModel.Rebates2_Result)">
-      <Parameter Name="dt" Mode="In" Type="DateTime" />
-      <Parameter Name="hasGroupBonus" Mode="In" Type="Boolean" />
-    </FunctionImport>
-    <FunctionImport Name="RebatesByMember" ReturnType="Collection(GBHODBModel.RebatesByMember_Result)">
-      <Parameter Name="dt" Mode="In" Type="DateTime" />
-      <Parameter Name="hasGroupBonus" Mode="In" Type="Boolean" />
-      <Parameter Name="memberId" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="RebatesReport" ReturnType="Collection(GBHODBModel.RebatesReport_Result)">
-      <Parameter Name="MemberID" Mode="In" Type="Int32" />
-      <Parameter Name="dt" Mode="In" Type="DateTime" />
-      <Parameter Name="hasGroupBonus" Mode="In" Type="Boolean" />
-    </FunctionImport>
-    <FunctionImport Name="RebatesReportLastUpdate" ReturnType="Collection(DateTime)" />
-  </EntityContainer>
+<Schema Namespace="GBHOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <ComplexType Name="GetBinaryIncome_Result">
     <Property Name="DATE" Type="DateTime" />
     <Property Name="PL" Type="Int32" />
@@ -117,142 +21,152 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MemberID" Type="Int32" Nullable="false" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="MemberCode" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="MiddleName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="MemberCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Pairs" Type="Int32" Nullable="false" />
     <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Mem" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="Mem" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MemberCounter">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Counter" Type="Int32" Nullable="false" />
+    <Property Name="LastDateUpdated" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <EntityType Name="Member">
     <Key>
       <PropertyRef Name="MemberId" />
     </Key>
-    <Property Name="MemberId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-    <Property Name="Username" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-    <Property Name="Password" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
-    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="MiddleName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
-    <Property Name="MobileNo" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
-    <Property Name="TelephoneNo" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-    <Property Name="Occupation" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="MemberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MobileNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TelephoneNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Occupation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Birthday" Type="DateTime" Precision="3" />
-    <Property Name="BirthPlace" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
-    <Property Name="Citizenship" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="Gender" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
-    <Property Name="MaritalStatus" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="PresentAddress" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
-    <Property Name="ProvincialAddress" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="BirthPlace" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Citizenship" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MaritalStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PresentAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ProvincialAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="ParentId" Type="Int32" Nullable="false" />
     <Property Name="SponsorId" Type="Int32" Nullable="false" />
-    <Property Name="HierarchyCode" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="MemberCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="HierarchyCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MemberCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="DateJoined" Type="DateTime" Precision="3" />
     <Property Name="RoleId" Type="Int32" Nullable="false" />
-    <Property Name="Picture" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
-    <Property Name="Type" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-    <Property Name="ApprovedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Picture" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ApprovedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ApprovedDate" Type="DateTime" Precision="3" />
-    <Property Name="RecState" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="RecState" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-    <Property Name="ModifiedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="LastLoggedIn" Type="DateTime" Precision="3" />
     <Property Name="IsFreeAccount" Type="Boolean" />
-    <Property Name="PaymentType" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-    <Property Name="CashNote" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="BankBranch" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
-    <Property Name="DepositNo" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="PaymentType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CashNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BankBranch" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DepositNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="DateDeposited" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Role" Relationship="GBHODBModel.FK_Members_Roles" FromRole="Members" ToRole="Roles" />
-    <NavigationProperty Name="Orders" Relationship="GBHODBModel.FK_Orders_Members" FromRole="Members" ToRole="Orders" />
-    <NavigationProperty Name="Withdrawals" Relationship="GBHODBModel.FK_Withdrawals_Members" FromRole="Members" ToRole="Withdrawals" />
+    <Property Name="MemberCodeOld" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_Members_Roles" FromRole="Members" ToRole="Roles" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Members" FromRole="Members" ToRole="Orders" />
+    <NavigationProperty Name="Withdrawals" Relationship="Self.FK_Withdrawals_Members" FromRole="Members" ToRole="Withdrawals" />
   </EntityType>
   <EntityType Name="OrderItem">
     <Key>
       <PropertyRef Name="OrderItemId" />
     </Key>
-    <Property Name="OrderItemId" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderItemId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="OrderId" Type="Int64" Nullable="false" />
     <Property Name="ProductId" Type="Int32" Nullable="false" />
-    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="QTY" Type="Int32" Nullable="false" />
     <Property Name="Points" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Order" Relationship="GBHODBModel.FK_OrderItems_Orders" FromRole="OrderItems" ToRole="Orders" />
-    <NavigationProperty Name="Product" Relationship="GBHODBModel.FK_OrderItems_Products" FromRole="OrderItems" ToRole="Products" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_OrderItems_Orders" FromRole="OrderItems" ToRole="Orders" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_OrderItems_Products" FromRole="OrderItems" ToRole="Products" />
   </EntityType>
   <EntityType Name="Order">
     <Key>
       <PropertyRef Name="OrderId" />
     </Key>
-    <Property Name="OrderId" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MemberId" Type="Int32" />
-    <Property Name="NonMemberName" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
-    <Property Name="NonMemberAddress" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
-    <Property Name="NonMemberPhoneNo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="Status" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-    <Property Name="OrderBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="OrderFor" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="OrderDate" Type="DateTime" Precision="3" />
-    <Property Name="ProcessedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="ProcessedDate" Type="DateTime" Precision="3" />
+    <Property Name="NonMemberName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="NonMemberAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NonMemberPhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-    <Property Name="ModifiedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="RecState" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
-    <NavigationProperty Name="Member" Relationship="GBHODBModel.FK_Orders_Members" FromRole="Orders" ToRole="Members" />
-    <NavigationProperty Name="OrderItems" Relationship="GBHODBModel.FK_OrderItems_Orders" FromRole="Orders" ToRole="OrderItems" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RecState" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="OrderBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OrderFor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OrderDate" Type="DateTime" Precision="3" />
+    <Property Name="ProcessedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProcessedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_Orders_Members" FromRole="Orders" ToRole="Members" />
+    <NavigationProperty Name="OrderItems" Relationship="Self.FK_OrderItems_Orders" FromRole="Orders" ToRole="OrderItems" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
       <PropertyRef Name="ProductId" />
     </Key>
-    <Property Name="ProductId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="Description" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
-    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="Points" Type="Int32" Nullable="false" />
-    <Property Name="Picture" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
-    <Property Name="RecState" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="Picture" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="RecState" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-    <Property Name="ModifiedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-    <NavigationProperty Name="OrderItems" Relationship="GBHODBModel.FK_OrderItems_Products" FromRole="Products" ToRole="OrderItems" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="OrderItems" Relationship="Self.FK_OrderItems_Products" FromRole="Products" ToRole="OrderItems" />
   </EntityType>
   <EntityType Name="Role">
     <Key>
       <PropertyRef Name="RoleId" />
     </Key>
-    <Property Name="RoleId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-    <Property Name="RoleCode" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="Description" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
-    <NavigationProperty Name="Members" Relationship="GBHODBModel.FK_Members_Roles" FromRole="Roles" ToRole="Members" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Members" Relationship="Self.FK_Members_Roles" FromRole="Roles" ToRole="Members" />
   </EntityType>
   <EntityType Name="Setting">
     <Key>
       <PropertyRef Name="SettingId" />
     </Key>
-    <Property Name="SettingId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-    <Property Name="Key" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="Value" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="Description" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
-    <Property Name="Type" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="SettingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Key" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-    <Property Name="ModifiedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="RecState" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RecState" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
   </EntityType>
   <EntityType Name="Withdrawal">
     <Key>
@@ -263,21 +177,21 @@
       <PropertyRef Name="CreatedDate" />
       <PropertyRef Name="CreatedBy" />
     </Key>
-    <Property Name="WithdrawId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="WithdrawId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MemberId" Type="Int32" Nullable="false" />
-    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-    <Property Name="ChequeNo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="Status" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ChequeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="TransactionDate" Type="DateTime" Precision="3" />
     <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-    <Property Name="ModifiedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-    <NavigationProperty Name="Member" Relationship="GBHODBModel.FK_Withdrawals_Members" FromRole="Withdrawals" ToRole="Members" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_Withdrawals_Members" FromRole="Withdrawals" ToRole="Members" />
   </EntityType>
   <Association Name="FK_Members_Roles">
-    <End Role="Roles" Type="GBHODBModel.Role" Multiplicity="1" />
-    <End Role="Members" Type="GBHODBModel.Member" Multiplicity="*" />
+    <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+    <End Role="Members" Type="Self.Member" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Roles">
         <PropertyRef Name="RoleId" />
@@ -288,8 +202,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Orders_Members">
-    <End Role="Members" Type="GBHODBModel.Member" Multiplicity="0..1" />
-    <End Role="Orders" Type="GBHODBModel.Order" Multiplicity="*" />
+    <End Role="Members" Type="Self.Member" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Members">
         <PropertyRef Name="MemberId" />
@@ -300,8 +214,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Withdrawals_Members">
-    <End Role="Members" Type="GBHODBModel.Member" Multiplicity="1" />
-    <End Role="Withdrawals" Type="GBHODBModel.Withdrawal" Multiplicity="*" />
+    <End Role="Members" Type="Self.Member" Multiplicity="1" />
+    <End Role="Withdrawals" Type="Self.Withdrawal" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Members">
         <PropertyRef Name="MemberId" />
@@ -312,8 +226,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_OrderItems_Orders">
-    <End Role="Orders" Type="GBHODBModel.Order" Multiplicity="1" />
-    <End Role="OrderItems" Type="GBHODBModel.OrderItem" Multiplicity="*" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+    <End Role="OrderItems" Type="Self.OrderItem" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Orders">
         <PropertyRef Name="OrderId" />
@@ -324,8 +238,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_OrderItems_Products">
-    <End Role="Products" Type="GBHODBModel.Product" Multiplicity="1" />
-    <End Role="OrderItems" Type="GBHODBModel.OrderItem" Multiplicity="*" />
+    <End Role="Products" Type="Self.Product" Multiplicity="1" />
+    <End Role="OrderItems" Type="Self.OrderItem" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Products">
         <PropertyRef Name="ProductId" />
@@ -335,6 +249,99 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityContainer Name="GBHODBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BinaryIncomeAlls" EntityType="Self.BinaryIncomeAll" />
+    <EntitySet Name="MemberCounters" EntityType="Self.MemberCounter" />
+    <EntitySet Name="Members" EntityType="Self.Member" />
+    <EntitySet Name="OrderItems" EntityType="Self.OrderItem" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="Settings" EntityType="Self.Setting" />
+    <EntitySet Name="Withdrawals" EntityType="Self.Withdrawal" />
+    <AssociationSet Name="FK_Members_Roles" Association="Self.FK_Members_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Members" EntitySet="Members" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Members" Association="Self.FK_Orders_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Withdrawals_Members" Association="Self.FK_Withdrawals_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="Withdrawals" EntitySet="Withdrawals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItems_Orders" Association="Self.FK_OrderItems_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItems_Products" Association="Self.FK_OrderItems_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+    <FunctionImport Name="GetBinaryIncome" IsComposable="true" ReturnType="Collection(GBHOModel.GetBinaryIncome_Result)">
+      <Parameter Name="hcode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetPairBonus" IsComposable="true" ReturnType="Collection(GBHOModel.GetPairBonus_Result)">
+      <Parameter Name="memberId" Mode="In" Type="Int32" />
+      <Parameter Name="dt" Mode="In" Type="DateTime" />
+      <Parameter Name="refval" Mode="In" Type="Int32" />
+      <Parameter Name="pair" Mode="In" Type="Int32" />
+      <Parameter Name="hCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="BinaryIncome" ReturnType="Collection(GBHOModel.BinaryIncome_Result)">
+      <Parameter Name="MemberID" Mode="In" Type="Int32" />
+      <Parameter Name="dt" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllForReceiving" ReturnType="Collection(GBHOModel.GetAllForReceiving_Result)" />
+    <FunctionImport Name="GetAllOrders" ReturnType="Collection(GBHOModel.GetAllOrders_Result)">
+      <Parameter Name="Username" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllOrdersPending" ReturnType="Collection(GBHOModel.GetAllOrdersPending_Result)">
+      <Parameter Name="MemberID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetCart" ReturnType="Collection(GBHOModel.GetCart_Result)">
+      <Parameter Name="MemberID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetMyOrders" ReturnType="Collection(GBHOModel.GetMyOrders_Result)">
+      <Parameter Name="MemberID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetOrderDetails" ReturnType="Collection(GBHOModel.GetOrderDetails_Result)">
+      <Parameter Name="OrderId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetPairs" ReturnType="Collection(GBHOModel.GetPairs_Result)">
+      <Parameter Name="HierarchyCode" Mode="In" Type="String" />
+      <Parameter Name="DT" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GroupBonus" ReturnType="Collection(GBHOModel.GroupBonus_Result)">
+      <Parameter Name="MemberID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="OrderReports" ReturnType="Collection(GBHOModel.OrderReports_Result)">
+      <Parameter Name="admin" Mode="In" Type="String" />
+      <Parameter Name="dt" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="PairingBonus" ReturnType="Collection(GBHOModel.PairingBonus_Result)">
+      <Parameter Name="MemberID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ProcessRebatesCleanUp" />
+    <FunctionImport Name="ProcessRebatesReport" />
+    <FunctionImport Name="ProcessRebatesReportStatus" ReturnType="Collection(GBHOModel.ProcessRebatesReportStatus_Result)" />
+    <FunctionImport Name="Rebates" ReturnType="Collection(GBHOModel.Rebates_Result)">
+      <Parameter Name="dt" Mode="In" Type="DateTime" />
+      <Parameter Name="hasGroupBonus" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="RebatesByMember" ReturnType="Collection(GBHOModel.RebatesByMember_Result)">
+      <Parameter Name="dt" Mode="In" Type="DateTime" />
+      <Parameter Name="hasGroupBonus" Mode="In" Type="Boolean" />
+      <Parameter Name="memberId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="RebatesReport" ReturnType="Collection(GBHOModel.RebatesReport_Result)">
+      <Parameter Name="MemberID" Mode="In" Type="Int32" />
+      <Parameter Name="dt" Mode="In" Type="DateTime" />
+      <Parameter Name="hasGroupBonus" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="RebatesReportLastUpdate" ReturnType="Collection(DateTime)" />
+  </EntityContainer>
   <ComplexType Name="BinaryIncome_Result">
     <Property Type="DateTime" Name="DATE" Nullable="true" Precision="23" />
     <Property Type="Int32" Name="PL" Nullable="true" />
@@ -455,21 +462,6 @@
     <Property Type="String" Name="MiddleName" Nullable="false" MaxLength="50" />
     <Property Type="Int32" Name="Referrals" Nullable="true" />
     <Property Type="Int32" Name="Pairs" Nullable="true" />
-    <Property Type="Decimal" Name="Group" Nullable="true" Precision="16" Scale="2" />
-  </ComplexType>
-  <ComplexType Name="Rebates2_Result">
-    <Property Type="Int32" Name="MemberID" Nullable="false" />
-    <Property Type="String" Name="MemberCode" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="Username" Nullable="false" MaxLength="20" />
-    <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" />
-    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
-    <Property Type="String" Name="MiddleName" Nullable="false" MaxLength="50" />
-    <Property Type="Int32" Name="Referrals" Nullable="true" />
-    <Property Type="Int32" Name="PL" Nullable="true" />
-    <Property Type="Int32" Name="PR" Nullable="true" />
-    <Property Type="Int32" Name="BL" Nullable="true" />
-    <Property Type="Int32" Name="BR" Nullable="true" />
-    <Property Type="Int32" Name="Pair" Nullable="true" />
     <Property Type="Decimal" Name="Group" Nullable="true" Precision="16" Scale="2" />
   </ComplexType>
   <ComplexType Name="RebatesByMember_Result">

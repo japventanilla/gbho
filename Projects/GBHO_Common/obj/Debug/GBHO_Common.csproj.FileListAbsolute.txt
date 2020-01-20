@@ -13,3 +13,9 @@ C:\RONALD_BACKUP\Personal\Others\GBHO\Projects\Web\GBHO_Web\GBHO_Common\obj\Debu
 C:\RONALD_BACKUP\Personal\Others\GBHO\Projects\Web\GBHO_Web\GBHO_Common\obj\Debug\GBHO_Common.csproj.CopyComplete
 C:\RONALD_BACKUP\Personal\Others\GBHO\Projects\Web\GBHO_Web\GBHO_Common\obj\Debug\GBHO_Common.dll
 C:\RONALD_BACKUP\Personal\Others\GBHO\Projects\Web\GBHO_Web\GBHO_Common\obj\Debug\GBHO_Common.pdb
+C:\Users\SALCEDO\Documents\GitHub\gbho\Projects\GBHO_Common\bin\Debug\GBHO_Common.dll
+C:\Users\SALCEDO\Documents\GitHub\gbho\Projects\GBHO_Common\bin\Debug\GBHO_Common.pdb
+C:\Users\SALCEDO\Documents\GitHub\gbho\Projects\GBHO_Common\bin\Debug\ephtmltopdf.xml
+C:\Users\SALCEDO\Documents\GitHub\gbho\Projects\GBHO_Common\obj\Debug\GBHO_Common.csprojResolveAssemblyReference.cache
+C:\Users\SALCEDO\Documents\GitHub\gbho\Projects\GBHO_Common\obj\Debug\GBHO_Common.dll
+C:\Users\SALCEDO\Documents\GitHub\gbho\Projects\GBHO_Common\obj\Debug\GBHO_Common.pdb

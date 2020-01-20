@@ -100,6 +100,9 @@
     <Compile Include="EntityFrameworks\Member.cs">
       <DependentUpon>GBHOModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityFrameworks\MemberCounter.cs">
+      <DependentUpon>GBHOModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityFrameworks\Order.cs">
       <DependentUpon>GBHOModel.tt</DependentUpon>
     </Compile>
@@ -116,9 +119,6 @@
       <DependentUpon>GBHOModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityFrameworks\Product.cs">
-      <DependentUpon>GBHOModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityFrameworks\Rebates2_Result.cs">
       <DependentUpon>GBHOModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityFrameworks\RebatesByMember_Result.cs">
@@ -147,18 +147,8 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>GBHOModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="EntityFrameworks\GBHOModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GBHOModel.edmx</DependentUpon>
-      <LastGenOutput>GBHOModel.Context.cs</LastGenOutput>
-    </None>
     <None Include="EntityFrameworks\GBHOModel.edmx.diagram">
       <DependentUpon>GBHOModel.edmx</DependentUpon>
-    </None>
-    <None Include="EntityFrameworks\GBHOModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GBHOModel.edmx</DependentUpon>
-      <LastGenOutput>GBHOModel.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -166,6 +156,18 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="EntityFrameworks\GBHOModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GBHOModel.edmx</DependentUpon>
+      <LastGenOutput>GBHOModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityFrameworks\GBHOModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GBHOModel.edmx</DependentUpon>
+      <LastGenOutput>GBHOModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
