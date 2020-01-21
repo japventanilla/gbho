@@ -13,3 +13,11 @@ C:\RONALD_BACKUP\Personal\Others\GBHO\Projects\Web\GBHO_Web\GBHO_Common\obj\Rele
 C:\RONALD_BACKUP\Personal\Others\GBHO\Projects\Web\GBHO_Web\GBHO_Common\obj\Release\GBHO_Common.csproj.CopyComplete
 C:\RONALD_BACKUP\Personal\Others\GBHO\Projects\Web\GBHO_Web\GBHO_Common\obj\Release\GBHO_Common.dll
 C:\RONALD_BACKUP\Personal\Others\GBHO\Projects\Web\GBHO_Web\GBHO_Common\obj\Release\GBHO_Common.pdb
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Common\bin\Release\GBHO_Common.dll
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Common\bin\Release\GBHO_Common.pdb
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Common\bin\Release\ephtmltopdf.xml
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Common\obj\Release\GBHO_Common.csprojAssemblyReference.cache
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Common\obj\Release\GBHO_Common.csproj.CoreCompileInputs.cache
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Common\obj\Release\GBHO_Common.csproj.CopyComplete
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Common\obj\Release\GBHO_Common.dll
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Common\obj\Release\GBHO_Common.pdb

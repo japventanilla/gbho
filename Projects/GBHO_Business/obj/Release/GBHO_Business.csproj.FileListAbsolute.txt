@@ -24,3 +24,17 @@ C:\RONALD_BACKUP\Personal\Others\GBHO\Projects\Web\GBHO_Web\GBHO_Business\obj\Re
 C:\RONALD_BACKUP\Personal\Others\GBHO\Projects\Web\GBHO_Web\GBHO_Business\obj\Release\GBHO_Business.csproj.CopyComplete
 C:\RONALD_BACKUP\Personal\Others\GBHO\Projects\Web\GBHO_Web\GBHO_Business\obj\Release\GBHO_Business.dll
 C:\RONALD_BACKUP\Personal\Others\GBHO\Projects\Web\GBHO_Web\GBHO_Business\obj\Release\GBHO_Business.pdb
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Business\bin\Release\GBHO_Business.dll
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Business\bin\Release\GBHO_Business.pdb
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Business\bin\Release\GBHO_Common.dll
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Business\bin\Release\GBHO_Data.dll
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Business\bin\Release\ephtmltopdf.dll
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Business\bin\Release\GBHO_Common.pdb
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Business\bin\Release\GBHO_Data.pdb
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Business\bin\Release\GBHO_Data.dll.config
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Business\bin\Release\ephtmltopdf.xml
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Business\obj\Release\GBHO_Business.csprojAssemblyReference.cache
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Business\obj\Release\GBHO_Business.csproj.CoreCompileInputs.cache
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Business\obj\Release\GBHO_Business.csproj.CopyComplete
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Business\obj\Release\GBHO_Business.dll
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Business\obj\Release\GBHO_Business.pdb

@@ -1,75 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="GBHODBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="GBHODBModelStoreContainer">
-    <EntitySet Name="BinaryIncomeAll" EntityType="GBHODBModel.Store.BinaryIncomeAll" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Members" EntityType="GBHODBModel.Store.Members" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="OrderItems" EntityType="GBHODBModel.Store.OrderItems" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Orders" EntityType="GBHODBModel.Store.Orders" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Products" EntityType="GBHODBModel.Store.Products" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Roles" EntityType="GBHODBModel.Store.Roles" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Settings" EntityType="GBHODBModel.Store.Settings" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Withdrawals" EntityType="GBHODBModel.Store.Withdrawals" store:Type="Tables" store:Schema="dbo" store:Name="Withdrawals">
-      <DefiningQuery>SELECT 
-      [Withdrawals].[WithdrawId] AS [WithdrawId], 
-      [Withdrawals].[MemberId] AS [MemberId], 
-      [Withdrawals].[Amount] AS [Amount], 
-      [Withdrawals].[ChequeNo] AS [ChequeNo], 
-      [Withdrawals].[Status] AS [Status], 
-      [Withdrawals].[TransactionDate] AS [TransactionDate], 
-      [Withdrawals].[CreatedDate] AS [CreatedDate], 
-      [Withdrawals].[CreatedBy] AS [CreatedBy], 
-      [Withdrawals].[ModifiedDate] AS [ModifiedDate], 
-      [Withdrawals].[ModifiedBy] AS [ModifiedBy]
-      FROM [dbo].[Withdrawals] AS [Withdrawals]</DefiningQuery>
-    </EntitySet>
-    <AssociationSet Name="FK_Members_Roles" Association="GBHODBModel.Store.FK_Members_Roles">
-      <End Role="Roles" EntitySet="Roles" />
-      <End Role="Members" EntitySet="Members" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderItems_Orders" Association="GBHODBModel.Store.FK_OrderItems_Orders">
-      <End Role="Orders" EntitySet="Orders" />
-      <End Role="OrderItems" EntitySet="OrderItems" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderItems_Products" Association="GBHODBModel.Store.FK_OrderItems_Products">
-      <End Role="Products" EntitySet="Products" />
-      <End Role="OrderItems" EntitySet="OrderItems" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Orders_Members" Association="GBHODBModel.Store.FK_Orders_Members">
-      <End Role="Members" EntitySet="Members" />
-      <End Role="Orders" EntitySet="Orders" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Withdrawals_Members" Association="GBHODBModel.Store.FK_Withdrawals_Members">
-      <End Role="Members" EntitySet="Members" />
-      <End Role="Withdrawals" EntitySet="Withdrawals" />
-    </AssociationSet>
-  </EntityContainer>
+<Schema Namespace="GBHOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="BinaryIncomeAll">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MemberID" Type="int" Nullable="false" />
     <Property Name="Date" Type="datetime" Nullable="false" />
-    <Property Name="MemberCode" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="MiddleName" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="Username" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="MemberCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Pairs" Type="int" Nullable="false" />
     <Property Name="LastUpdate" Type="datetime" Nullable="false" />
     <Property Name="Mem" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="MemberCounter">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Counter" Type="int" Nullable="false" />
+    <Property Name="LastDateUpdated" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Members">
     <Key>
       <PropertyRef Name="MemberId" />
     </Key>
-    <Property Name="MemberId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Username" Type="varchar" Nullable="false" MaxLength="20" />
-    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="500" />
-    <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="MiddleName" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="MemberId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="MobileNo" Type="nvarchar" MaxLength="20" />
     <Property Name="TelephoneNo" Type="nvarchar" MaxLength="100" />
     <Property Name="Occupation" Type="varchar" MaxLength="100" />
@@ -87,30 +52,32 @@
     <Property Name="DateJoined" Type="datetime" />
     <Property Name="RoleId" Type="int" Nullable="false" />
     <Property Name="Picture" Type="nvarchar" MaxLength="250" />
-    <Property Name="Type" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Type" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="ApprovedBy" Type="varchar" MaxLength="50" />
     <Property Name="ApprovedDate" Type="datetime" />
-    <Property Name="RecState" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="RecState" Type="char" MaxLength="1" Nullable="false" />
     <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-    <Property Name="CreatedBy" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ModifiedDate" Type="datetime" />
     <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
     <Property Name="LastLoggedIn" Type="datetime" />
     <Property Name="IsFreeAccount" Type="bit" />
     <Property Name="PaymentType" Type="varchar" MaxLength="20" />
-    <Property Name="CashNote" Type="nvarchar(max)" />
+    <Property Name="CashNote" Type="varchar(max)" />
     <Property Name="BankBranch" Type="varchar" MaxLength="500" />
     <Property Name="DepositNo" Type="varchar" MaxLength="100" />
     <Property Name="DateDeposited" Type="datetime" />
+    <Property Name="MemberCodeOld" Type="nvarchar" MaxLength="100" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="OrderItems">
     <Key>
       <PropertyRef Name="OrderItemId" />
     </Key>
-    <Property Name="OrderItemId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OrderItemId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="OrderId" Type="bigint" Nullable="false" />
     <Property Name="ProductId" Type="int" Nullable="false" />
-    <Property Name="Amount" Type="decimal" Nullable="false" Scale="2" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="QTY" Type="int" Nullable="false" />
     <Property Name="Points" Type="int" Nullable="false" />
   </EntityType>
@@ -118,36 +85,36 @@
     <Key>
       <PropertyRef Name="OrderId" />
     </Key>
-    <Property Name="OrderId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OrderId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MemberId" Type="int" />
     <Property Name="NonMemberName" Type="varchar" MaxLength="150" />
     <Property Name="NonMemberAddress" Type="nvarchar" MaxLength="250" />
     <Property Name="NonMemberPhoneNo" Type="varchar" MaxLength="50" />
-    <Property Name="Status" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Status" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="RecState" Type="char" MaxLength="1" Nullable="false" />
     <Property Name="OrderBy" Type="varchar" MaxLength="50" />
     <Property Name="OrderFor" Type="varchar" MaxLength="50" />
     <Property Name="OrderDate" Type="datetime" />
     <Property Name="ProcessedBy" Type="varchar" MaxLength="50" />
     <Property Name="ProcessedDate" Type="datetime" />
-    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-    <Property Name="CreatedBy" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="ModifiedDate" Type="datetime" />
-    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
-    <Property Name="RecState" Type="char" Nullable="false" MaxLength="1" />
   </EntityType>
   <EntityType Name="Products">
     <Key>
       <PropertyRef Name="ProductId" />
     </Key>
-    <Property Name="ProductId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="ProductName" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Description" Type="varchar" MaxLength="250" />
-    <Property Name="Amount" Type="decimal" Nullable="false" Scale="2" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="Points" Type="int" Nullable="false" />
     <Property Name="Picture" Type="nvarchar" MaxLength="250" />
-    <Property Name="RecState" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="RecState" Type="char" MaxLength="1" Nullable="false" />
     <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-    <Property Name="CreatedBy" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ModifiedDate" Type="datetime" />
     <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
   </EntityType>
@@ -155,29 +122,28 @@
     <Key>
       <PropertyRef Name="RoleId" />
     </Key>
-    <Property Name="RoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="RoleCode" Type="varchar" Nullable="false" MaxLength="20" />
-    <Property Name="RoleName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleCode" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Description" Type="varchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="Settings">
     <Key>
       <PropertyRef Name="SettingId" />
     </Key>
-    <Property Name="SettingId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Key" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="Value" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="SettingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Key" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Value" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Description" Type="nvarchar" MaxLength="300" />
-    <Property Name="Type" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="Type" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-    <Property Name="CreatedBy" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ModifiedDate" Type="datetime" />
     <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
-    <Property Name="RecState" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="RecState" Type="char" MaxLength="1" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-      warning 6002: The table/view 'GBHODB.dbo.Withdrawals' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+warning 6002: The table/view 'gbhodb_01202020.dbo.Withdrawals' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Withdrawals">
     <Key>
       <PropertyRef Name="WithdrawId" />
@@ -187,20 +153,20 @@
       <PropertyRef Name="CreatedDate" />
       <PropertyRef Name="CreatedBy" />
     </Key>
-    <Property Name="WithdrawId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="WithdrawId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MemberId" Type="int" Nullable="false" />
-    <Property Name="Amount" Type="decimal" Nullable="false" Scale="2" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="ChequeNo" Type="varchar" MaxLength="50" />
-    <Property Name="Status" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="TransactionDate" Type="datetime" />
     <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-    <Property Name="CreatedBy" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ModifiedDate" Type="datetime" />
     <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
   </EntityType>
   <Association Name="FK_Members_Roles">
-    <End Role="Roles" Type="GBHODBModel.Store.Roles" Multiplicity="1" />
-    <End Role="Members" Type="GBHODBModel.Store.Members" Multiplicity="*" />
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="Members" Type="Self.Members" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Roles">
         <PropertyRef Name="RoleId" />
@@ -211,8 +177,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_OrderItems_Orders">
-    <End Role="Orders" Type="GBHODBModel.Store.Orders" Multiplicity="1" />
-    <End Role="OrderItems" Type="GBHODBModel.Store.OrderItems" Multiplicity="*" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+    <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Orders">
         <PropertyRef Name="OrderId" />
@@ -223,8 +189,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_OrderItems_Products">
-    <End Role="Products" Type="GBHODBModel.Store.Products" Multiplicity="1" />
-    <End Role="OrderItems" Type="GBHODBModel.Store.OrderItems" Multiplicity="*" />
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Products">
         <PropertyRef Name="ProductId" />
@@ -235,8 +201,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Orders_Members">
-    <End Role="Members" Type="GBHODBModel.Store.Members" Multiplicity="0..1" />
-    <End Role="Orders" Type="GBHODBModel.Store.Orders" Multiplicity="*" />
+    <End Role="Members" Type="Self.Members" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Members">
         <PropertyRef Name="MemberId" />
@@ -247,8 +213,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Withdrawals_Members">
-    <End Role="Members" Type="GBHODBModel.Store.Members" Multiplicity="1" />
-    <End Role="Withdrawals" Type="GBHODBModel.Store.Withdrawals" Multiplicity="*" />
+    <End Role="Members" Type="Self.Members" Multiplicity="1" />
+    <End Role="Withdrawals" Type="Self.Withdrawals" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Members">
         <PropertyRef Name="MemberId" />
@@ -289,7 +255,7 @@
   <Function Name="GetCart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MemberID" Type="int" Mode="In" />
   </Function>
-  <Function Name="GetGroupBonus" ReturnType="decimal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+  <Function Name="GetGroupBonus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="decimal">
     <Parameter Name="hCode" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="Date" Type="datetime" Mode="In" />
     <Parameter Name="Level" Type="int" Mode="In" />
@@ -323,7 +289,7 @@
     <Parameter Name="HierarchyCode" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="DT" Type="datetime" Mode="In" />
   </Function>
-  <Function Name="GetRebateGroupBonus" ReturnType="decimal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+  <Function Name="GetRebateGroupBonus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="decimal">
     <Parameter Name="MemberID" Type="int" Mode="In" />
     <Parameter Name="dt" Type="datetime" Mode="In" />
   </Function>
@@ -344,10 +310,6 @@
     <Parameter Name="dt" Type="datetime" Mode="In" />
     <Parameter Name="hasGroupBonus" Type="bit" Mode="In" />
   </Function>
-  <Function Name="Rebates2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="dt" Type="datetime" Mode="In" />
-    <Parameter Name="hasGroupBonus" Type="bit" Mode="In" />
-  </Function>
   <Function Name="RebatesByMember" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="dt" Type="datetime" Mode="In" />
     <Parameter Name="hasGroupBonus" Type="bit" Mode="In" />
@@ -359,4 +321,48 @@
     <Parameter Name="hasGroupBonus" Type="bit" Mode="In" />
   </Function>
   <Function Name="RebatesReportLastUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="GBHOModelStoreContainer">
+    <EntitySet Name="BinaryIncomeAll" EntityType="Self.BinaryIncomeAll" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberCounter" EntityType="Self.MemberCounter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderItems" EntityType="Self.OrderItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Withdrawals" EntityType="Self.Withdrawals" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Withdrawals].[WithdrawId] AS [WithdrawId], 
+[Withdrawals].[MemberId] AS [MemberId], 
+[Withdrawals].[Amount] AS [Amount], 
+[Withdrawals].[ChequeNo] AS [ChequeNo], 
+[Withdrawals].[Status] AS [Status], 
+[Withdrawals].[TransactionDate] AS [TransactionDate], 
+[Withdrawals].[CreatedDate] AS [CreatedDate], 
+[Withdrawals].[CreatedBy] AS [CreatedBy], 
+[Withdrawals].[ModifiedDate] AS [ModifiedDate], 
+[Withdrawals].[ModifiedBy] AS [ModifiedBy]
+FROM [dbo].[Withdrawals] AS [Withdrawals]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Members_Roles" Association="Self.FK_Members_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Members" EntitySet="Members" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItems_Orders" Association="Self.FK_OrderItems_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItems_Products" Association="Self.FK_OrderItems_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Members" Association="Self.FK_Orders_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Withdrawals_Members" Association="Self.FK_Withdrawals_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="Withdrawals" EntitySet="Withdrawals" />
+    </AssociationSet>
+  </EntityContainer>
 </Schema>

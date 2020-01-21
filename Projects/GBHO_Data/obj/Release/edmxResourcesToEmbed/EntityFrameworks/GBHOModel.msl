@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="GBHODBModelStoreContainer" CdmEntityContainer="GBHODBEntities">
+  <EntityContainerMapping StorageEntityContainer="GBHOModelStoreContainer" CdmEntityContainer="GBHODBEntities">
     <EntitySetMapping Name="BinaryIncomeAlls">
-      <EntityTypeMapping TypeName="GBHODBModel.BinaryIncomeAll">
+      <EntityTypeMapping TypeName="GBHOModel.BinaryIncomeAll">
         <MappingFragment StoreEntitySet="BinaryIncomeAll">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="MemberID" ColumnName="MemberID" />
@@ -18,8 +18,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="MemberCounters">
+      <EntityTypeMapping TypeName="GBHOModel.MemberCounter">
+        <MappingFragment StoreEntitySet="MemberCounter">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Counter" ColumnName="Counter" />
+          <ScalarProperty Name="LastDateUpdated" ColumnName="LastDateUpdated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Members">
-      <EntityTypeMapping TypeName="GBHODBModel.Member">
+      <EntityTypeMapping TypeName="GBHOModel.Member">
         <MappingFragment StoreEntitySet="Members">
           <ScalarProperty Name="MemberId" ColumnName="MemberId" />
           <ScalarProperty Name="Username" ColumnName="Username" />
@@ -60,11 +69,13 @@
           <ScalarProperty Name="BankBranch" ColumnName="BankBranch" />
           <ScalarProperty Name="DepositNo" ColumnName="DepositNo" />
           <ScalarProperty Name="DateDeposited" ColumnName="DateDeposited" />
+          <ScalarProperty Name="MemberCodeOld" ColumnName="MemberCodeOld" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="OrderItems">
-      <EntityTypeMapping TypeName="GBHODBModel.OrderItem">
+      <EntityTypeMapping TypeName="GBHOModel.OrderItem">
         <MappingFragment StoreEntitySet="OrderItems">
           <ScalarProperty Name="OrderItemId" ColumnName="OrderItemId" />
           <ScalarProperty Name="OrderId" ColumnName="OrderId" />
@@ -76,7 +87,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Orders">
-      <EntityTypeMapping TypeName="GBHODBModel.Order">
+      <EntityTypeMapping TypeName="GBHOModel.Order">
         <MappingFragment StoreEntitySet="Orders">
           <ScalarProperty Name="OrderId" ColumnName="OrderId" />
           <ScalarProperty Name="MemberId" ColumnName="MemberId" />
@@ -84,21 +95,21 @@
           <ScalarProperty Name="NonMemberAddress" ColumnName="NonMemberAddress" />
           <ScalarProperty Name="NonMemberPhoneNo" ColumnName="NonMemberPhoneNo" />
           <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
-          <ScalarProperty Name="OrderFor" ColumnName="OrderFor" />
-          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
-          <ScalarProperty Name="ProcessedBy" ColumnName="ProcessedBy" />
-          <ScalarProperty Name="ProcessedDate" ColumnName="ProcessedDate" />
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
           <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
           <ScalarProperty Name="RecState" ColumnName="RecState" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="OrderFor" ColumnName="OrderFor" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="ProcessedBy" ColumnName="ProcessedBy" />
+          <ScalarProperty Name="ProcessedDate" ColumnName="ProcessedDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Products">
-      <EntityTypeMapping TypeName="GBHODBModel.Product">
+      <EntityTypeMapping TypeName="GBHOModel.Product">
         <MappingFragment StoreEntitySet="Products">
           <ScalarProperty Name="ProductId" ColumnName="ProductId" />
           <ScalarProperty Name="ProductName" ColumnName="ProductName" />
@@ -115,7 +126,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Roles">
-      <EntityTypeMapping TypeName="GBHODBModel.Role">
+      <EntityTypeMapping TypeName="GBHOModel.Role">
         <MappingFragment StoreEntitySet="Roles">
           <ScalarProperty Name="RoleId" ColumnName="RoleId" />
           <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
@@ -125,7 +136,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Settings">
-      <EntityTypeMapping TypeName="GBHODBModel.Setting">
+      <EntityTypeMapping TypeName="GBHOModel.Setting">
         <MappingFragment StoreEntitySet="Settings">
           <ScalarProperty Name="SettingId" ColumnName="SettingId" />
           <ScalarProperty Name="Key" ColumnName="Key" />
@@ -141,7 +152,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Withdrawals">
-      <EntityTypeMapping TypeName="GBHODBModel.Withdrawal">
+      <EntityTypeMapping TypeName="GBHOModel.Withdrawal">
         <MappingFragment StoreEntitySet="Withdrawals">
           <ScalarProperty Name="WithdrawId" ColumnName="WithdrawId" />
           <ScalarProperty Name="MemberId" ColumnName="MemberId" />
@@ -156,9 +167,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionName="GBHODBModel.Store.GetBinaryIncome" FunctionImportName="GetBinaryIncome">
+    <FunctionImportMapping FunctionName="GBHOModel.Store.GetBinaryIncome" FunctionImportName="GetBinaryIncome">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="GBHODBModel.GetBinaryIncome_Result">
+        <ComplexTypeMapping TypeName="GBHOModel.GetBinaryIncome_Result">
           <ScalarProperty Name="DATE" ColumnName="DATE" />
           <ScalarProperty Name="PL" ColumnName="PL" />
           <ScalarProperty Name="PR" ColumnName="PR" />
@@ -170,9 +181,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionName="GBHODBModel.Store.GetPairBonus" FunctionImportName="GetPairBonus">
+    <FunctionImportMapping FunctionName="GBHOModel.Store.GetPairBonus" FunctionImportName="GetPairBonus">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="GBHODBModel.GetPairBonus_Result">
+        <ComplexTypeMapping TypeName="GBHOModel.GetPairBonus_Result">
           <ScalarProperty Name="PL" ColumnName="PL" />
           <ScalarProperty Name="PR" ColumnName="PR" />
           <ScalarProperty Name="BL" ColumnName="BL" />
@@ -181,9 +192,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="BinaryIncome" FunctionName="GBHODBModel.Store.BinaryIncome">
+    <FunctionImportMapping FunctionImportName="BinaryIncome" FunctionName="GBHOModel.Store.BinaryIncome">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="GBHODBModel.BinaryIncome_Result">
+        <ComplexTypeMapping TypeName="GBHOModel.BinaryIncome_Result">
           <ScalarProperty Name="DATE" ColumnName="DATE" />
           <ScalarProperty Name="PL" ColumnName="PL" />
           <ScalarProperty Name="PR" ColumnName="PR" />
@@ -195,9 +206,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="GetAllForReceiving" FunctionName="GBHODBModel.Store.GetAllForReceiving">
+    <FunctionImportMapping FunctionImportName="GetAllForReceiving" FunctionName="GBHOModel.Store.GetAllForReceiving">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="GBHODBModel.GetAllForReceiving_Result">
+        <ComplexTypeMapping TypeName="GBHOModel.GetAllForReceiving_Result">
           <ScalarProperty Name="OrderId" ColumnName="OrderId" />
           <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
@@ -207,9 +218,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="GetAllOrders" FunctionName="GBHODBModel.Store.GetAllOrders">
+    <FunctionImportMapping FunctionImportName="GetAllOrders" FunctionName="GBHOModel.Store.GetAllOrders">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="GBHODBModel.GetAllOrders_Result">
+        <ComplexTypeMapping TypeName="GBHOModel.GetAllOrders_Result">
           <ScalarProperty Name="OrderId" ColumnName="OrderId" />
           <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
@@ -221,9 +232,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="GetAllOrdersPending" FunctionName="GBHODBModel.Store.GetAllOrdersPending">
+    <FunctionImportMapping FunctionImportName="GetAllOrdersPending" FunctionName="GBHOModel.Store.GetAllOrdersPending">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="GBHODBModel.GetAllOrdersPending_Result">
+        <ComplexTypeMapping TypeName="GBHOModel.GetAllOrdersPending_Result">
           <ScalarProperty Name="ProductId" ColumnName="ProductId" />
           <ScalarProperty Name="ProductName" ColumnName="ProductName" />
           <ScalarProperty Name="Picture" ColumnName="Picture" />
@@ -233,9 +244,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="GetCart" FunctionName="GBHODBModel.Store.GetCart">
+    <FunctionImportMapping FunctionImportName="GetCart" FunctionName="GBHOModel.Store.GetCart">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="GBHODBModel.GetCart_Result">
+        <ComplexTypeMapping TypeName="GBHOModel.GetCart_Result">
           <ScalarProperty Name="OrderId" ColumnName="OrderId" />
           <ScalarProperty Name="OrderItemId" ColumnName="OrderItemId" />
           <ScalarProperty Name="ProductId" ColumnName="ProductId" />
@@ -248,9 +259,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="GetMyOrders" FunctionName="GBHODBModel.Store.GetMyOrders">
+    <FunctionImportMapping FunctionImportName="GetMyOrders" FunctionName="GBHOModel.Store.GetMyOrders">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="GBHODBModel.GetMyOrders_Result">
+        <ComplexTypeMapping TypeName="GBHOModel.GetMyOrders_Result">
           <ScalarProperty Name="OrderId" ColumnName="OrderId" />
           <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
@@ -260,9 +271,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="GetOrderDetails" FunctionName="GBHODBModel.Store.GetOrderDetails">
+    <FunctionImportMapping FunctionImportName="GetOrderDetails" FunctionName="GBHOModel.Store.GetOrderDetails">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="GBHODBModel.GetOrderDetails_Result">
+        <ComplexTypeMapping TypeName="GBHOModel.GetOrderDetails_Result">
           <ScalarProperty Name="OrderId" ColumnName="OrderId" />
           <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
           <ScalarProperty Name="OrderItemId" ColumnName="OrderItemId" />
@@ -278,9 +289,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="GetPairs" FunctionName="GBHODBModel.Store.GetPairs">
+    <FunctionImportMapping FunctionImportName="GetPairs" FunctionName="GBHOModel.Store.GetPairs">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="GBHODBModel.GetPairs_Result">
+        <ComplexTypeMapping TypeName="GBHOModel.GetPairs_Result">
           <ScalarProperty Name="DateJoined" ColumnName="DateJoined" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
@@ -291,9 +302,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="GroupBonus" FunctionName="GBHODBModel.Store.GroupBonus">
+    <FunctionImportMapping FunctionImportName="GroupBonus" FunctionName="GBHOModel.Store.GroupBonus">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="GBHODBModel.GroupBonus_Result">
+        <ComplexTypeMapping TypeName="GBHOModel.GroupBonus_Result">
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Pts" ColumnName="Pts" />
           <ScalarProperty Name="Member" ColumnName="Member" />
@@ -308,9 +319,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="OrderReports" FunctionName="GBHODBModel.Store.OrderReports">
+    <FunctionImportMapping FunctionImportName="OrderReports" FunctionName="GBHOModel.Store.OrderReports">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="GBHODBModel.OrderReports_Result">
+        <ComplexTypeMapping TypeName="GBHOModel.OrderReports_Result">
           <ScalarProperty Name="OrderId" ColumnName="OrderId" />
           <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
           <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
@@ -321,9 +332,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="PairingBonus" FunctionName="GBHODBModel.Store.PairingBonus">
+    <FunctionImportMapping FunctionImportName="PairingBonus" FunctionName="GBHOModel.Store.PairingBonus">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="GBHODBModel.PairingBonus_Result">
+        <ComplexTypeMapping TypeName="GBHOModel.PairingBonus_Result">
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="PairLeft" ColumnName="PairLeft" />
           <ScalarProperty Name="PairRight" ColumnName="PairRight" />
@@ -332,19 +343,19 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="ProcessRebatesCleanUp" FunctionName="GBHODBModel.Store.ProcessRebatesCleanUp" />
-    <FunctionImportMapping FunctionImportName="ProcessRebatesReport" FunctionName="GBHODBModel.Store.ProcessRebatesReport" />
-    <FunctionImportMapping FunctionImportName="ProcessRebatesReportStatus" FunctionName="GBHODBModel.Store.ProcessRebatesReportStatus">
+    <FunctionImportMapping FunctionImportName="ProcessRebatesCleanUp" FunctionName="GBHOModel.Store.ProcessRebatesCleanUp" />
+    <FunctionImportMapping FunctionImportName="ProcessRebatesReport" FunctionName="GBHOModel.Store.ProcessRebatesReport" />
+    <FunctionImportMapping FunctionImportName="ProcessRebatesReportStatus" FunctionName="GBHOModel.Store.ProcessRebatesReportStatus">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="GBHODBModel.ProcessRebatesReportStatus_Result">
+        <ComplexTypeMapping TypeName="GBHOModel.ProcessRebatesReportStatus_Result">
           <ScalarProperty Name="Total" ColumnName="Total" />
           <ScalarProperty Name="Processed" ColumnName="Processed" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="Rebates" FunctionName="GBHODBModel.Store.Rebates">
+    <FunctionImportMapping FunctionImportName="Rebates" FunctionName="GBHOModel.Store.Rebates">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="GBHODBModel.Rebates_Result">
+        <ComplexTypeMapping TypeName="GBHOModel.Rebates_Result">
           <ScalarProperty Name="MemberID" ColumnName="MemberID" />
           <ScalarProperty Name="MemberCode" ColumnName="MemberCode" />
           <ScalarProperty Name="Username" ColumnName="Username" />
@@ -357,28 +368,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="Rebates2" FunctionName="GBHODBModel.Store.Rebates2">
+    <FunctionImportMapping FunctionImportName="RebatesByMember" FunctionName="GBHOModel.Store.RebatesByMember">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="GBHODBModel.Rebates2_Result">
-          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
-          <ScalarProperty Name="MemberCode" ColumnName="MemberCode" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
-          <ScalarProperty Name="Referrals" ColumnName="Referrals" />
-          <ScalarProperty Name="PL" ColumnName="PL" />
-          <ScalarProperty Name="PR" ColumnName="PR" />
-          <ScalarProperty Name="BL" ColumnName="BL" />
-          <ScalarProperty Name="BR" ColumnName="BR" />
-          <ScalarProperty Name="Pair" ColumnName="Pair" />
-          <ScalarProperty Name="Group" ColumnName="Group" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="RebatesByMember" FunctionName="GBHODBModel.Store.RebatesByMember">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="GBHODBModel.RebatesByMember_Result">
+        <ComplexTypeMapping TypeName="GBHOModel.RebatesByMember_Result">
           <ScalarProperty Name="MemberID" ColumnName="MemberID" />
           <ScalarProperty Name="MemberCode" ColumnName="MemberCode" />
           <ScalarProperty Name="Username" ColumnName="Username" />
@@ -391,9 +383,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="RebatesReport" FunctionName="GBHODBModel.Store.RebatesReport">
+    <FunctionImportMapping FunctionImportName="RebatesReport" FunctionName="GBHOModel.Store.RebatesReport">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="GBHODBModel.RebatesReport_Result">
+        <ComplexTypeMapping TypeName="GBHOModel.RebatesReport_Result">
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Pairs" ColumnName="Pairs" />
           <ScalarProperty Name="Group" ColumnName="Group" />
@@ -401,6 +393,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="RebatesReportLastUpdate" FunctionName="GBHODBModel.Store.RebatesReportLastUpdate" />
+    <FunctionImportMapping FunctionImportName="RebatesReportLastUpdate" FunctionName="GBHOModel.Store.RebatesReportLastUpdate" />
   </EntityContainerMapping>
 </Mapping>

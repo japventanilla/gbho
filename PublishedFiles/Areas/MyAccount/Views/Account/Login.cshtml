@@ -1,0 +1,81 @@
+﻿@model LogOnViewModel
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>GBHO, Inc. - MyAccount Login</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="/App_Themes/Public/images/favicon.ico">
+
+    @Styles.Render("~/bundles/login/css")
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+
+</head>
+<body class="bg-dark">
+
+
+    <div class="sufee-login d-flex align-content-center flex-wrap">
+        <div class="container">
+            <div class="login-content">
+                <div class="login-logo">
+                    <a href="index.html">
+                        <img class="align-content" src="/App_Themes/MyAccount/images/logo-myaccount-lg.png" alt="">
+                    </a>
+                </div>
+                <div class="login-form">
+                    @using (Html.BeginForm())
+                    {
+                
+                        if (ViewBag.IsError != null)
+                        {
+                            <!--div class="alert alert-danger">
+                                <strong>Sorry!</strong> The username/email or password you entered is not valid.
+                            </div-->
+                            <div class="sufee-alert alert with-close alert-danger alert-dismissible fade show">
+                                <span class="badge badge-pill badge-danger">Sorry!</span>
+                                The credentials you entered is not valid.
+                            </div>
+                        }
+                        <div class="form-group">
+                            <label>Username/Email</label>
+                            @Html.TextBoxFor(x=>x.Username,new { @class="form-control", @placeholder="Username/Email"}) 
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            @Html.TextBoxFor(x=>x.Password,new { @class="form-control", @type="password", @placeholder="Password" })
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <!--input type="checkbox"--> 
+                                @Html.CheckBoxFor(m => m.IsRemember, new { @checked = "checked" }) Remember Me
+                            </label>
+                            <!--label class="pull-right">
+                                <a href="Url.Content("/MyAccount/Account/ForgotPassword")">Forgotten Password?</a>
+                            </label-->
+
+                        </div>
+                        <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>                        
+                    }
+                </div>
+
+                <div class="text-center" style="margin-top:10px;">
+                    <p><a href="/"> Back to Website</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/login/js")	
+
+
+</body>
+</html>
+

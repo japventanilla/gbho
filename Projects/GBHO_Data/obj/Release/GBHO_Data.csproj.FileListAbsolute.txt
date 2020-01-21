@@ -16,3 +16,13 @@ C:\RONALD_BACKUP\Personal\Others\GBHO\Projects\Web\GBHO_Web\GBHO_Data\obj\Releas
 C:\RONALD_BACKUP\Personal\Others\GBHO\Projects\Web\GBHO_Web\GBHO_Data\obj\Release\GBHO_Data.csproj.CopyComplete
 C:\RONALD_BACKUP\Personal\Others\GBHO\Projects\Web\GBHO_Web\GBHO_Data\obj\Release\GBHO_Data.dll
 C:\RONALD_BACKUP\Personal\Others\GBHO\Projects\Web\GBHO_Web\GBHO_Data\obj\Release\GBHO_Data.pdb
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Data\bin\Release\GBHO_Data.dll.config
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Data\bin\Release\GBHO_Data.dll
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Data\bin\Release\GBHO_Data.pdb
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Data\bin\Release\EntityFramework.dll
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Data\bin\Release\EntityFramework.xml
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Data\obj\Release\GBHO_Data.csprojAssemblyReference.cache
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Data\obj\Release\GBHO_Data.csproj.CoreCompileInputs.cache
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Data\obj\Release\GBHO_Data.csproj.CopyComplete
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Data\obj\Release\GBHO_Data.dll
+C:\Users\ronalv\Documents\GitHub\gbho\Projects\GBHO_Data\obj\Release\GBHO_Data.pdb
